@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  class="dark"
->
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -26,7 +23,24 @@
       rel="stylesheet"
       href="css/style.css"
     />
-    <title>GA Tailwind | Local Storage with Darkmode</title>
+    <script>
+      // Dark Mode Toggle example taken from code camp except no usage of flowbite is needed
+      // https://www.freecodecamp.org/news/how-to-build-a-dark-mode-switcher-with-tailwind-css-and-flowbite/
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <script
+      src="js/script.js"
+      defer
+    ></script>
+    <title>GA Tailwind | Toggleable Darkmode</title>
   </head>
   <body class="dark:bg-darkBlue dark:text-white font-opensans">
     <!-- Header -->
